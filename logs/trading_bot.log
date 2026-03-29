@@ -1,0 +1,85 @@
+2026-03-29 13:19:26,021 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/BUY/MARKET qty=0.001 price=None
+2026-03-29 13:19:26,924 | INFO | trading_bot | client:get_client:66 | Using Binance Futures TESTNET.
+2026-03-29 13:19:28,125 | DEBUG | trading_bot | client:_verify_connection:105 | Futures API ping successful.
+2026-03-29 13:19:28,284 | ERROR | trading_bot | client:_verify_connection:114 | Invalid API key or secret. Please check your .env file.
+2026-03-29 13:19:28,285 | ERROR | trading_bot | client:get_client:87 | Unexpected error creating Binance client: Binance API verification failed: Invalid API-key, IP, or permissions for action
+2026-03-29 13:19:28,286 | ERROR | trading_bot | cli:main:65 | Order placement failed
+Traceback (most recent call last):
+  File "C:\Users\Admin\trading_bot\bot\client.py", line 108, in _verify_connection
+    account_info = client.futures_account()
+  File "C:\Users\Admin\trading_bot\venv\Lib\site-packages\binance\client.py", line 8377, in futures_account
+    return self._request_futures_api("get", "account", True, 2, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\trading_bot\venv\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\trading_bot\venv\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\trading_bot\venv\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-2015): Invalid API-key, IP, or permissions for action
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\trading_bot\cli.py", line 52, in main
+    client = get_client()
+  File "C:\Users\Admin\trading_bot\bot\client.py", line 71, in get_client
+    _verify_connection(client)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\trading_bot\bot\client.py", line 125, in _verify_connection
+    raise ConnectionError(
+        f"Binance API verification failed: {e.message}"
+    ) from e
+ConnectionError: Binance API verification failed: Invalid API-key, IP, or permissions for action
+2026-03-29 13:24:36,885 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/BUY/MARKET qty=0.001 price=None
+2026-03-29 13:24:37,502 | INFO | trading_bot | client:get_client:28 | Binance Futures Testnet client initialized.
+2026-03-29 13:24:37,503 | ERROR | trading_bot | cli:main:65 | Order placement failed
+Traceback (most recent call last):
+  File "C:\Users\Admin\trading_bot\cli.py", line 53, in main
+    response = place_order(client, symbol, side, order_type, quantity, price, time_in_force)
+TypeError: place_order() takes from 5 to 6 positional arguments but 7 were given
+2026-03-29 13:27:54,610 | INFO | trading_bot | client:get_client:28 | Binance Futures Testnet client initialized.
+2026-03-29 13:27:54,611 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/BUY/MARKET qty=0.001 price=None
+2026-03-29 13:27:54,611 | INFO | trading_bot | orders:place_order:89 | Placing order: MARKET BUY BTCUSDT | Qty: 0.001 | Params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
+2026-03-29 13:27:55,530 | ERROR | trading_bot | orders:_handle_api_exception:202 | Binance API error [-2015]: Invalid API key or permissions. | Detail: Invalid API-key, IP, or permissions for action | Params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
+2026-03-29 13:27:55,531 | ERROR | trading_bot | cli:main:47 | Order placement failed
+2026-03-29 13:40:27,571 | INFO | trading_bot | client:get_client:28 | Binance Futures Testnet client initialized.
+2026-03-29 13:40:27,573 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/BUY/MARKET qty=0.001 price=None
+2026-03-29 13:40:27,573 | INFO | trading_bot | orders:place_order:89 | Placing order: MARKET BUY BTCUSDT | Qty: 0.001 | Params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
+2026-03-29 13:40:28,719 | ERROR | trading_bot | orders:_handle_api_exception:202 | Binance API error [-2015]: Invalid API key or permissions. | Detail: Invalid API-key, IP, or permissions for action | Params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
+2026-03-29 13:40:28,720 | ERROR | trading_bot | cli:main:47 | Order placement failed
+2026-03-29 13:47:21,057 | INFO | trading_bot | client:get_client:61 | Testnet client initialized successfully.
+2026-03-29 13:47:21,058 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/BUY/MARKET qty=0.001 price=None
+2026-03-29 13:47:21,059 | INFO | trading_bot | orders:place_order:31 | Placing MARKET BUY BTCUSDT | Qty: 0.001
+2026-03-29 13:47:21,059 | INFO | trading_bot | client:futures_create_order:41 | POST https://testnet.binancefuture.com/fapi/v1/order | Params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001, 'timestamp': 1774772241059}
+2026-03-29 13:47:22,331 | ERROR | trading_bot | client:futures_create_order:47 | API error: {'code': -2015, 'msg': 'Invalid API-key, IP, or permissions for action'}
+2026-03-29 13:47:22,332 | ERROR | trading_bot | orders:place_order:45 | Order failed: APIError(code=-2015): Invalid API-key, IP, or permissions for action
+2026-03-29 13:47:22,333 | ERROR | trading_bot | cli:main:47 | Order placement failed
+2026-03-29 14:35:04,740 | INFO | trading_bot | client:get_client:60 | Testnet client initialized successfully.
+2026-03-29 14:35:04,741 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/BUY/MARKET qty=0.001 price=None
+2026-03-29 14:35:04,742 | INFO | trading_bot | orders:place_order:31 | Placing MARKET BUY BTCUSDT | Qty: 0.001
+2026-03-29 14:35:04,743 | INFO | trading_bot | client:futures_create_order:40 | POST https://demo-fapi.binance.com/fapi/v1/order | Params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001, 'timestamp': 1774775104742}
+2026-03-29 14:35:05,914 | ERROR | trading_bot | client:futures_create_order:46 | API error: {'code': -4164, 'msg': "Order's notional must be no smaller than 100 (unless you choose reduce only)."}
+2026-03-29 14:35:05,915 | ERROR | trading_bot | orders:place_order:45 | Order failed: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-03-29 14:35:05,916 | ERROR | trading_bot | cli:main:47 | Order placement failed
+2026-03-29 14:35:59,715 | INFO | trading_bot | client:get_client:60 | Testnet client initialized successfully.
+2026-03-29 14:35:59,715 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/BUY/MARKET qty=0.01 price=None
+2026-03-29 14:35:59,716 | INFO | trading_bot | orders:place_order:31 | Placing MARKET BUY BTCUSDT | Qty: 0.01
+2026-03-29 14:35:59,717 | INFO | trading_bot | client:futures_create_order:40 | POST https://demo-fapi.binance.com/fapi/v1/order | Params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.01, 'timestamp': 1774775159717}
+2026-03-29 14:36:01,075 | INFO | trading_bot | orders:place_order:38 | Order success | ID: 13005916087 | Status: NEW
+2026-03-29 14:36:01,076 | INFO | trading_bot | cli:main:43 | Order placed successfully: 13005916087
+2026-03-29 14:36:49,259 | INFO | trading_bot | client:get_client:60 | Testnet client initialized successfully.
+2026-03-29 14:36:49,260 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/SELL/LIMIT qty=0.1 price=50000
+2026-03-29 14:36:49,260 | INFO | trading_bot | orders:place_order:31 | Placing LIMIT SELL BTCUSDT | Qty: 0.1 | Price: 50000
+2026-03-29 14:36:49,260 | INFO | trading_bot | client:futures_create_order:40 | POST https://demo-fapi.binance.com/fapi/v1/order | Params: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': 0.1, 'price': 50000.0, 'timeInForce': 'GTC', 'timestamp': 1774775209260}
+2026-03-29 14:36:50,468 | ERROR | trading_bot | client:futures_create_order:46 | API error: {'code': -4024, 'msg': "Limit price can't be lower than 63316.94."}
+2026-03-29 14:36:50,468 | ERROR | trading_bot | orders:place_order:45 | Order failed: APIError(code=-4024): Limit price can't be lower than 63316.94.
+2026-03-29 14:36:50,469 | ERROR | trading_bot | cli:main:47 | Order placement failed
+2026-03-29 14:37:26,356 | INFO | trading_bot | client:get_client:60 | Testnet client initialized successfully.
+2026-03-29 14:37:26,356 | DEBUG | trading_bot | validators:validate_inputs:115 | Input validation passed for BTCUSDT/SELL/LIMIT qty=0.1 price=95000
+2026-03-29 14:37:26,357 | INFO | trading_bot | orders:place_order:31 | Placing LIMIT SELL BTCUSDT | Qty: 0.1 | Price: 95000
+2026-03-29 14:37:26,357 | INFO | trading_bot | client:futures_create_order:40 | POST https://demo-fapi.binance.com/fapi/v1/order | Params: {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': 0.1, 'price': 95000.0, 'timeInForce': 'GTC', 'timestamp': 1774775246357}
+2026-03-29 14:37:27,496 | INFO | trading_bot | orders:place_order:38 | Order success | ID: 13005919628 | Status: NEW
+2026-03-29 14:37:27,498 | INFO | trading_bot | cli:main:43 | Order placed successfully: 13005919628
